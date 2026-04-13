@@ -1,0 +1,64 @@
+/* PredictiveChart.css */
+
+.predictive-card {
+  border-radius: var(--card-radius) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04) !important;
+  transition: transform 0.3s ease;
+  background-color: #ffffff !important;
+}
+
+.predictive-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 헤더 타이틀 섹션 */
+.chart-header-accent {
+  width: 6px;
+  height: 24px;
+  background-color: var(--sejong-red);
+  border-radius: 10px;
+  margin-right: 12px;
+}
+
+.chart-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--apple-black);
+  letter-spacing: -0.5px;
+}
+
+.current-time-text {
+  font-size: 14px;
+  color: var(--apple-gray);
+  font-weight: 400;
+}
+
+/* 수치 강조 섹션 */
+.value-display {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: var(--apple-black);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.unit-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--apple-gray);
+}
+
+.comparison-text {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* 차트 영역 */
+.echarts-container {
+  margin-top: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+}

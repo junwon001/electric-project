@@ -1,0 +1,127 @@
+/* src/components/pages/Home/MainSection2.css */
+
+.main-section-2-wrapper {
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding-bottom: 100px;
+}
+
+/* 상단 타이틀 및 안내 섹션 */
+.section-title-sketch {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  color: #1d1d1f;
+}
+
+/* Apple 스타일 고 버튼 (Home.css 계승) */
+.apple-pill-go-button {
+  border: none !important;
+  padding: 12px 55px !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  border-radius: 100px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background-color: #0071e3 !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(0, 113, 227, 0.2) !important;
+  cursor: pointer !important;
+}
+
+.apple-pill-go-button:hover {
+  background-color: #0077ed !important;
+  box-shadow: 0 15px 30px rgba(0, 113, 227, 0.35) !important;
+  transform: scale(1.05);
+}
+
+/* 지도 컨테이너 (Hero Map Wrapper 스타일 계승) */
+.campus-map-relative-container {
+  width: 100%;
+  max-width: 1050px;
+  aspect-ratio: 1016 / 527; 
+  background-color: #fff;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden; 
+  margin: 60px auto 0;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+
+.map-base-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+}
+
+/* --- 다각형 건물 클릭 구역 (핫스팟) --- */
+.map-hotspot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 10;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+/* 호버 시 건물 외곽선 강조 (Glow 효과) */
+.map-hotspot:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  /* Home.css의 drop-shadow 기법 적용 */
+  filter: 
+    drop-shadow(1px 0 0 var(--hotspot-color)) 
+    drop-shadow(-1px 0 0 var(--hotspot-color)) 
+    drop-shadow(0 1px 0 var(--hotspot-color)) 
+    drop-shadow(0 -1px 0 var(--hotspot-color));
+}
+
+/* 건물 이름 라벨 (Hotspot Label 스타일 계승) */
+.hotspot-label {
+  position: absolute;
+  top: var(--label-top);
+  left: var(--label-left);
+  transform: translate(-50%, -50%) translateY(15px); 
+  opacity: 0;
+  color: #ffffff;
+  background: var(--hotspot-color);
+  padding: 6px 16px;
+  border-radius: 100px; /* 더 둥근 캡슐형 */
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  pointer-events: none; /* 클릭 방해 금지 */
+  z-index: 20; 
+  border: 2px solid #ffffff;
+}
+
+/* 핫스팟 호버 시 라벨 등장 */
+.map-hotspot:hover + .hotspot-label {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+/* 스크롤 타겟 영역 여백 */
+.map-scroll-target {
+  padding-top: 50px;
+}
+
+/* --- 반응형 처리 --- */
+@media (max-width: 768px) {
+  .campus-map-relative-container {
+    border-radius: 20px;
+    width: 95%;
+  }
+  .section-title-sketch {
+    font-size: 32px;
+  }
+  .hotspot-label {
+    display: none; /* 모바일에서는 텍스트 라벨 생략 (터치 영역 확보 우선) */
+  }
+}

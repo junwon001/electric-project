@@ -1,0 +1,37 @@
+/* global.css */
+@import './variables.css';
+
+/* 기본 폰트 및 배경 설정 */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: var(--apple-black);
+  /* 애플 시스템 폰트 설정 */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 모든 링크 스타일 초기화 */
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* 부트스트랩 컨테이너 미세 조정 */
+.container {
+  max-width: 1200px !important;
+}
+
+/* 스크롤바 디자인 (애플 스타일로 깔끔하게) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d2d2d7;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}

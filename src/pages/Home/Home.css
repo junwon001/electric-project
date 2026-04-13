@@ -1,0 +1,171 @@
+/* src/pages/Home/Home.css */
+
+.home-container {
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  padding: 160px 0 80px;
+}
+
+.hero-map-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 1016 / 527; 
+  background-color: #fff;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden; 
+  margin: 60px auto 0;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+
+.campus-map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; 
+}
+
+/* --- 다각형 건물 클릭 구역(핫스팟) 스타일 --- */
+.map-hotspot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer !important;
+  z-index: 10;
+  background-color: transparent; /* 항상 투명 유지 */
+  transition: all 0.2s ease-in-out;
+}
+
+/* [핵심] JSX 구조 변경에 따른 호버 알고리즘 수정 */
+/* 핫스팟에 마우스가 올라가면 바로 뒤의 형제 요소인 라벨(+ .hotspot-label)을 보여줌 */
+.map-hotspot:hover + .hotspot-label {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+/* [디자인 통일] MainSection2 스타일의 캡슐형 라벨 */
+.hotspot-label {
+  position: absolute;
+  top: var(--label-top);
+  left: var(--label-left);
+  /* 아래에서 위로 떠오르는 애니메이션 준비 */
+  transform: translate(-50%, -50%) translateY(15px); 
+  opacity: 0; /* 평소에는 숨김 */
+  color: #ffffff;
+  background: var(--hotspot-color);
+  padding: 6px 16px;
+  border-radius: 100px; /* 캡슐 모양 */
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  pointer-events: none; /* 라벨이 클릭을 방해하지 않도록 설정 */
+  z-index: 20; 
+  border: 2px solid #ffffff; /* 가시성을 위한 흰색 테두리 */
+}
+
+/* --- 섹션 공통 스타일 --- */
+.full-width-bg-section {
+  width: 100%;
+  background-color: #f5f5f7; 
+  margin-bottom: 20px;
+}
+
+.section-inner-content {
+  padding: 100px 0;
+  width: 100%;
+}
+
+.section-title-sketch {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: -2px;
+  color: #1d1d1f;
+}
+
+/* --- Apple 스타일 GO 버튼 --- */
+.apple-pill-go-button {
+  border: none !important;
+  padding: 12px 55px !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  border-radius: 100px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background-color: #0071e3 !important;
+  color: white !important;
+  box-shadow: 0 10px 25px rgba(0, 113, 227, 0.2) !important;
+  cursor: pointer !important;
+}
+
+.apple-pill-go-button:hover {
+  background-color: #0077ed !important;
+  box-shadow: 0 15px 30px rgba(0, 113, 227, 0.35) !important;
+  transform: scale(1.05);
+}
+
+/* --- Section 2 카드 디자인 --- */
+.sketch-mini-card {
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.sketch-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f8f9fa;
+  border-radius: 28px;
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+
+.sketch-mini-card:hover .sketch-img-box {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+}
+
+.sketch-building-img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.building-accent-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+}
+
+.sketch-label {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #1d1d1f;
+  display: block;
+}
+
+/* --- 반응형 --- */
+@media (max-width: 768px) {
+  .hero-map-wrapper { 
+    border-radius: 20px;
+  }
+  .section-title-sketch { font-size: 32px; }
+  .hotspot-label { display: none; }
+}
